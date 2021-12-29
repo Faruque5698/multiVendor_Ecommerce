@@ -50,5 +50,6 @@ class UserTableSeeder extends Seeder
                 'status'=>'active'
             ]
         ]);
+
     }
 }

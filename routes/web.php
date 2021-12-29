@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AdminPanel\BackEndController;
+use App\Http\Controllers\AdminPanel\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register'=>false]);
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix'=>'admins','middleware'=>'auth'],function(){
     Route::get('/',[BackEndController::class,'admin'])->name('admin');
+
+    //banner routes
+
+    Route::resource('/banner',BannerController::class);
+
 });
