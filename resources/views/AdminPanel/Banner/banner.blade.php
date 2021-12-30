@@ -66,18 +66,41 @@ Banner
                                             <td>
 
                                                 @if($banner->status == 'active')
-                                                    <a href="" class="btn btn-sm btn-info"
-                                                       onclick="return confirm('Are you want to Unpublished it')"><i class="fa fa-arrow-circle-up"></i></a>
+                                                    <a href="{{route('banner_unpublished',['id'=>$banner->id])}}" class="btn btn-sm btn-info"
+                                                       ><i class="fa fa-arrow-circle-up"></i></a>
                                                 @else
-                                                    <a href="" class="btn btn-sm btn-warning"
-                                                       onclick="return confirm('Are you want to publish it')" ><i class="fa fa-arrow-circle-down"></i></a>
+                                                    <a href="{{route('banner_published',['id'=>$banner->id])}}" class="btn btn-sm btn-warning"
+                                                        ><i class="fa fa-arrow-circle-down"></i></a>
                                                 @endif
 
-                                                <a href="" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+                                                <a href="{{route('banner_edit',$banner->id)}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
 
-                                                <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></a>
+                                                <a href="" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-danger" ><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
+
+                                        <div class="modal fade" id="modal-danger">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content bg-danger">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" style="text-align: center;"><img src="{{asset('Admin/image/Danger.png')}}" width="100px" height="100px" alt=""></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Are you want to delete it..</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                                        <a href="{{route('banner_destroy',$banner->id)}}" class="btn btn-outline-light">Delete</a>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+
                                     @endforeach
 
                                     </tbody>
@@ -104,6 +127,9 @@ Banner
 
         </section>
         <!-- /.content -->
+
+
+        <!-- /.modal -->
 
 
 @endsection

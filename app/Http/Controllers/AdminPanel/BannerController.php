@@ -83,7 +83,7 @@ class BannerController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -94,7 +94,10 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banner = Banner::find($id);
+        return view('AdminPanel.Banner.edit_banner',[
+            'banner'=>$banner
+        ]);
     }
 
     /**
@@ -104,9 +107,40 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $banner = Banner::find($request->id);
+        $banner_image = $request->file('photo');
+
+        if ($banner_image){
+
+            unlink($banner->photo);
+            $imageName = $banner_image->getClientOriginalName();
+            $directory = 'Admin/image/banner/';
+            $imageUrl = $directory.$imageName;
+            $banner_image -> move($directory,$imageName);
+
+            $banner->title = $request->title;
+            $banner->description = $request->description;
+            $banner->photo=$imageUrl;
+            $banner->status = $request->status;
+            $banner->condition = $request->condition;
+            $banner->save();
+
+
+
+        }else{
+            $banner->title = $request->title;
+            $banner->description = $request->description;
+            $banner->status = $request->status;
+            $banner->condition = $request->condition;
+            $banner->save();
+
+
+
+        }
+
+        return redirect('admins/banner')->with('message','Banner Updated Successfully');
     }
 
     /**
@@ -117,6 +151,23 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $banner = Banner::find($id);
+        unlink($banner->photo);
+        $banner->delete();
+        return back()->with('message',' Banner Deleted');
+    }
+
+    public function unpublished($id){
+        $banner = Banner::find($id);
+        $banner -> status = 'inactive';
+        $banner->save();
+        return back()->with('message',' Banner Inactive');
+    }
+
+    public function published($id){
+        $banner = Banner::find($id);
+        $banner -> status = 'active';
+        $banner->save();
+        return back()->with('message',' Banner Active');
     }
 }

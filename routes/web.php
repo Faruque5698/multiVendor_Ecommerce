@@ -29,5 +29,10 @@ Route::group(['prefix'=>'admins','middleware'=>'auth'],function(){
     //banner routes
 
     Route::resource('/banner',BannerController::class);
+    Route::get('banner/unpublished/{id}',[BannerController::class,'unpublished'])->name('banner_unpublished');
+    Route::get('banner/published/{id}',[BannerController::class,'published'])->name('banner_published');
+    Route::get('banner/destroy/{id}',[BannerController::class,'destroy'])->name('banner_destroy');
+    Route::get('banner/edit/{id}',[BannerController::class,'edit'])->name('banner_edit');
+    Route::post('banner/update/',[BannerController::class,'update'])->name('banner_update');
 
 });
