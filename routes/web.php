@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AdminPanel\BackEndController;
 use App\Http\Controllers\AdminPanel\BannerController;
+use App\Http\Controllers\AdminPanel\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,18 @@ Route::group(['prefix'=>'admins','middleware'=>'auth'],function(){
     Route::get('banner/destroy/{id}',[BannerController::class,'destroy'])->name('banner_destroy');
     Route::get('banner/edit/{id}',[BannerController::class,'edit'])->name('banner_edit');
     Route::post('banner/update/',[BannerController::class,'update'])->name('banner_update');
+
+    //category Route
+
+    Route::get('/category_list',[CategoryController::class,'index']);
+    Route::get('/category/add',[CategoryController::class,'create'])->name('add_category');
+    Route::get('category/store/',[CategoryController::class,'store'])->name('category_store');
+    Route::get('category/unpublished/{id}',[CategoryController::class,'unpublished'])->name('category_unpublished');
+    Route::get('category/published/{id}',[CategoryController::class,'published'])->name('category_published');
+    Route::get('category/destroy/{id}',[CategoryController::class,'destroy'])->name('category_destroy');
+    Route::get('category/edit/{id}',[CategoryController::class,'edit'])->name('category_edit');
+    Route::get('category/store/',[CategoryController::class,'store'])->name('category_store');
+
+
 
 });

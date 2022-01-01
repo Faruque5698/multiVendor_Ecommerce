@@ -17,10 +17,9 @@ class BannerFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name(),
-            'slug' => $this->faker->unique()->name(),
-            'description'=>$this->faker->sentences(50),
-            'image'=>'https://source.unsplash.com/random',
+            'title' => $this->faker->word,
+            'description'=>$this->faker->sentences(5,true),
+            'photo'=>$this->faker->imageUrl('100','100'),
             'condition'=>$this->faker->randomElement(['banner','promo']),
             'status'=>$this->faker->randomElement(['active','inactive'])
         ];
