@@ -51,7 +51,7 @@ Edit Category
                 <hr>
                 <div class="form-row">
                     <div class="col-12">
-                        <textarea id="editor" class="form-control @error('description') is-invalid @enderror" name="summary"  placeholder="Category Summary">{{$category->summary}}</textarea>
+                        <textarea id="editor" class="form-control @error('description') is-invalid @enderror" rows="5" cols="5"  name="summary"  placeholder="Category Summary">{{$category->summary}}</textarea>
                     </div>
                     @error('summary')
                     <div class="alert alert-danger">{{ $message }}</div>

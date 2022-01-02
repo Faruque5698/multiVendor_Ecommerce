@@ -73,7 +73,7 @@ Banner
                                                         ><i class="fa fa-arrow-circle-down"></i></a>
                                                 @endif
 
-                                                <a href="{{route('banner_edit',$banner->id)}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+                                                <a href="{{route('banner_edit',['id'=>$banner->id])}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
 
                                                 <a href="" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-danger" ><i class="fa fa-trash"></i></a>
                                             </td>
@@ -93,7 +93,7 @@ Banner
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                         <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                                                        <a href="{{route('banner_destroy',$banner->id)}}" class="btn btn-outline-light">Delete</a>
+                                                        <a href="{{route('banner_destroy',['id'=>$banner->id])}}" class="btn btn-outline-light">Delete</a>
                                                     </div>
                                                 </div>
                                                 <!-- /.modal-content -->

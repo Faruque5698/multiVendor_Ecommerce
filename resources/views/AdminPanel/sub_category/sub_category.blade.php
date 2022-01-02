@@ -1,7 +1,8 @@
 
+
 @extends('AdminPanel.master')
 @section('title')
-    Category
+    Sub Category
 @endsection
 
 @section('content')
@@ -38,8 +39,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Category List</h3>
-{{--                            <p>total category : {{$total_category}}</p>--}}
-                            <a href="{{route('add_category')}}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
+                            {{--                            <p>total category : {{$total_category}}</p>--}}
+                            <a href="{{route('add_subcategory')}}" class="btn btn-primary float-right"><i class="fa fa-plus"></i></a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,9 +48,9 @@
                                 <thead>
                                 <tr>
                                     <th>Sl</th>
+                                    <th>Sub Category Title</th>
                                     <th>Category Title</th>
-                                    <th>Category summary</th>
-                                    <th>Category Image</th>
+                                    <th>Sub Category summary</th>
                                     <th>Publication Status</th>
                                     <th>Action</th>
 
@@ -57,26 +58,26 @@
                                 </thead>
                                 <tbody>
                                 @php($i=1)
-                                @foreach($categories as $category)
+                                @foreach($subcats as $subcat)
                                     <tr>
                                         <td>{{$i++}}</td>
-                                        <td>{{$category->title}}</td>
-                                        <td>{{$category->summary}}</td>
+                                        <td>{{$subcat->title}}</td>
+                                        <td>{{$subcat->category->title}}</td>
+                                        <td>{{$subcat->summary}}</td>
 
 
-                                        <td><img src="{{asset($category->photo)}}" alt="" width="100px" height="100px"></td>
-                                        <td>{{$category->status == 'active' ? 'Published':'Unpublished'}}</td>
+                                        <td>{{$subcat->status == 'active' ? 'Published':'Unpublished'}}</td>
                                         <td>
 
-                                            @if($category->status == 'active')
-                                                <a href="{{route('category_unpublished',['id'=>$category->id])}}" class="btn btn-sm btn-info"
+                                            @if($subcat->status == 'active')
+                                                <a href="{{route('subcategory_unpublished',['id'=>$subcat->id])}}" class="btn btn-sm btn-info"
                                                 ><i class="fa fa-arrow-circle-up"></i></a>
                                             @else
-                                                <a href="{{route('category_published',['id'=>$category->id])}}" class="btn btn-sm btn-warning"
+                                                <a href="{{route('subcategory_published',['id'=>$subcat->id])}}" class="btn btn-sm btn-warning"
                                                 ><i class="fa fa-arrow-circle-down"></i></a>
                                             @endif
 
-                                            <a href="{{route('category_edit',['id'=>$category->id])}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+                                            <a href="{{route('subcategory_edit',['id'=>$subcat->id])}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
 
                                             <a href="" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-danger" ><i class="fa fa-trash"></i></a>
                                         </td>
@@ -96,7 +97,7 @@
                                                 </div>
                                                 <div class="modal-footer justify-content-between">
                                                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                                                    <a href="{{route('category_destroy',['id'=>$category->id])}}" class="btn btn-outline-light">Delete</a>
+                                                    <a href="{{route('subcategory_destroy',['id'=>$subcat->id])}}" class="btn btn-outline-light">Delete</a>
                                                 </div>
                                             </div>
                                             <!-- /.modal-content -->
@@ -111,10 +112,9 @@
                                 <tfoot>
                                 <tr>
                                     <th>Sl</th>
+                                    <th>Sub Category Title</th>
                                     <th>Category Title</th>
-                                    <th>Category summary</th>
-                                    <th>Category Image</th>
-
+                                    <th>Sub Category summary</th>
                                     <th>Publication Status</th>
                                     <th>Action</th>
 

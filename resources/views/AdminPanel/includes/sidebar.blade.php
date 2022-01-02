@@ -1,3 +1,7 @@
+@php
+    $prefix = Request::route()->getPrefix();
+       $route = Route::current()->getname();
+@endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{asset('admin')}}/index3.html" class="brand-link">
@@ -35,7 +39,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('admin')}}" class="nav-link {{($route == 'admin' ? 'active':'')}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -43,21 +47,25 @@
               </p>
             </a>
           </li>
-            <li class="nav-item has-treeview
-{{--                {{'category' == request()->path() ? ' menu-open' : ''}}--}}
-{{--            {{'category/add' == request()->path() ? ' menu-open' : ''}}--}}
-{{--            {{'category/edit/{id}' == request()->path() ? ' menu-open' : ''}}--}}
-{{--            {{'subcategory' == request()->path() ? ' menu-open' : ''}}--}}
-{{--            {{'subcategory/add' == request()->path() ? ' menu-open' : ''}}--}}
-{{--            {{'subcategory/edit/{id}' == request()->path() ? ' menu-open' : ''}}--}}
+            <li class="nav-item has-treeview {{($route == 'category_list')?'menu-open': ''}}
+            {{($route == 'category_edit')?'menu-open': ''}}
+            {{($route == 'add_category')?'menu-open': ''}}
+            {{($route == 'subcategory')?'menu-open': ''}}
+            {{($route == 'add_subcategory')?'menu-open': ''}}
+            {{($route == 'subcategory_edit')?'menu-open': ''}}
+
                 ">
-                <a href="#" class="nav-link
-{{--{{'category' == request()->path() ? ' active' : ''}}--}}
-{{--                {{'category/add' == request()->path() ? ' active' : ''}}--}}
-{{--                {{'category/edit/{id}' == request()->path() ? ' active' : ''}}--}}
-{{--                {{'subcategory' == request()->path() ? ' active' : ''}}--}}
-{{--                {{'subcategory/add' == request()->path() ? ' active' : ''}}--}}
-{{--                {{'subcategory/edit/{id}' == request()->path() ? ' active' : ''}}" --}}
+
+
+
+                <a href="#" class="nav-link {{($route == 'category_list')?'active': ''}}
+                {{($route == 'category_edit')?'active': ''}}
+                {{($route == 'add_category')?'active': ''}}
+                {{($route == 'subcategory')?'active': ''}}
+                {{($route == 'add_subcategory')?'active': ''}}
+                {{($route == 'subcategory_edit')?'active': ''}}
+
+
                     ">
                     <i class="fas fa-shopping-bag"> </i>
                     <p>
@@ -65,21 +73,27 @@
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{url('admins/category_list')}}" class="nav-link ">
+                <ul class="nav nav-treeview ">
+                    <li class="nav-item" >
+                        <a href="{{route('category_list')}}" class="nav-link  {{($route == 'category_list'?'active':'')}}
+                        {{($route == 'category_edit'?'active':'')}}
+                            ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Category List</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link ">
+                        <a href="{{route('add_category')}}" class="nav-link {{($route == 'add_category')?'active': ''}} ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Add Category</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('subcategory')}}" class="nav-link
+                            {{($route == 'subcategory')?'active': ''}}
+                            {{($route == 'add_subcategory')?'active': ''}}
+                            {{($route == 'subcategory_edit')?'active': ''}}
+                            ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Sub Category</p>
                         </a>
@@ -93,20 +107,15 @@
                 </ul>
             </li>
             <li class="nav-item has-treeview
-{{--                {{'category' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'category/add' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'category/edit/{id}' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'subcategory' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'subcategory/add' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'subcategory/edit/{id}' == request()->path() ? ' menu-open' : ''}}--}}
+                {{($route =='banner.index')?'menu-open':''}}
+                {{($route =='banner_edit')?'menu-open':''}}
+                {{($route =='banner.create')?'menu-open':''}}
+
                 ">
                 <a href="#" class="nav-link
-{{--{{'category' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'category/add' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'category/edit/{id}' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'subcategory' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'subcategory/add' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'subcategory/edit/{id}' == request()->path() ? ' active' : ''}}" --}}
+                    {{($route =='banner.index')?'active':''}}
+                    {{($route =='banner_edit')?'active':''}}
+                    {{($route =='banner.create')?'active':''}}
                     ">
                     <i class="fas fa-shopping-bag"> </i>
                     <p>
@@ -116,13 +125,16 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{route('banner.index')}}" class="nav-link ">
+                        <a href="{{route('banner.index')}}" class="nav-link
+                        {{($route =='banner.index')?'active':''}}
+                        {{($route =='banner_edit')?'active':''}}
+                            ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Banner List</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('banner.create')}}" class="nav-link ">
+                        <a href="{{route('banner.create')}}" class="nav-link {{($route =='banner.create')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Add Banner</p>
                         </a>
