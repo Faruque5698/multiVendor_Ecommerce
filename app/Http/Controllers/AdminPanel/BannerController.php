@@ -165,8 +165,14 @@ class BannerController extends Controller
     }
 
     public function published($id){
+        $banners = Banner::all();
         $banner = Banner::find($id);
+        if ($banner->status == 'inactive') {
+            Banner::where('status','=','active')->update(['status'=>'inactive']);
+
+        }
         $banner -> status = 'active';
+
         $banner->save();
         return back()->with('message',' Banner Active');
     }
