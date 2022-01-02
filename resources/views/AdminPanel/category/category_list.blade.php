@@ -50,8 +50,6 @@
                                     <th>Category Title</th>
                                     <th>Category summary</th>
                                     <th>Category Image</th>
-                                    <th>is_parent</th>
-                                    <th>parent_id</th>
                                     <th>Publication Status</th>
                                     <th>Action</th>
 
@@ -64,9 +62,9 @@
                                         <td>{{$i++}}</td>
                                         <td>{{$category->title}}</td>
                                         <td>{{$category->summary}}</td>
-                                        <td><img src="{{asset($category->photo)}}" alt="{{$category->title}}" width="100px" height="100px"></td>
-                                        <td>{{$category->is_parent ==1? 'Yes':'No'}}</td>
-                                        <td>{{$category->parent_id}}</td>
+
+
+                                        <td><img src="{{asset($category->photo)}}" alt="" width="100px" height="100px"></td>
                                         <td>{{$category->status == 'active' ? 'Published':'Unpublished'}}</td>
                                         <td>
 
@@ -116,8 +114,7 @@
                                     <th>Category Title</th>
                                     <th>Category summary</th>
                                     <th>Category Image</th>
-                                    <th>is_parent</th>
-                                    <th>parent_id</th>
+
                                     <th>Publication Status</th>
                                     <th>Action</th>
 

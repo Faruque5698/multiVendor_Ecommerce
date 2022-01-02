@@ -19,9 +19,9 @@ class CategoryFactory extends Factory
             'title'=>$this->faker->word,
             'photo'=>$this->faker->imageUrl('100','100'),
             'summary'=>$this->faker->sentences('10','true'),
-            'is_parent'=>$this->faker->randomElement([true,false]),
+//            'is_parent'=>$this->faker->randomElement([true,false]),
             'status'=>$this->faker->randomElement(['active','inactive']),
-            'parent_id'=>$this->faker->randomElement(Category::pluck('id')->toArray()),
+//            'parent_id'=>$this->faker->randomElement(Category::pluck('id')->toArray()),
         ];
     }
 }

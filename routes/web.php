@@ -40,12 +40,13 @@ Route::group(['prefix'=>'admins','middleware'=>'auth'],function(){
 
     Route::get('/category_list',[CategoryController::class,'index']);
     Route::get('/category/add',[CategoryController::class,'create'])->name('add_category');
-    Route::get('category/store/',[CategoryController::class,'store'])->name('category_store');
+    Route::post('category/store/',[CategoryController::class,'store'])->name('category_store');
     Route::get('category/unpublished/{id}',[CategoryController::class,'unpublished'])->name('category_unpublished');
     Route::get('category/published/{id}',[CategoryController::class,'published'])->name('category_published');
     Route::get('category/destroy/{id}',[CategoryController::class,'destroy'])->name('category_destroy');
     Route::get('category/edit/{id}',[CategoryController::class,'edit'])->name('category_edit');
     Route::get('category/store/',[CategoryController::class,'store'])->name('category_store');
+    Route::post('category/update/',[CategoryController::class,'update'])->name('category_update');
 
 
 

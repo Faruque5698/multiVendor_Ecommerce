@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><strong>Add Banner</strong></h1>
+                    <h1><strong>Add Category</strong></h1>
                 </div>
                 @if(Session::get('message'))
 
@@ -48,18 +48,9 @@
                         @enderror
                     </div>
                     <hr>
-                    {{--                    <div class="form-row">--}}
-                    {{--                        <div class="col-12">--}}
-                    {{--                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug"  placeholder="Banner Slug">--}}
-                    {{--                        </div>--}}
-                    {{--                        @error('slug')--}}
-                    {{--                        <div class="alert alert-danger">{{ $message }}</div>--}}
-                    {{--                        @enderror--}}
-                    {{--                    </div>--}}
-                    {{--                    <hr>--}}
                     <div class="form-row">
                         <div class="col-12">
-                            <textarea id="editor" class="form-control @error('description') is-invalid @enderror" name="summary"  placeholder="Banner Summary"></textarea>
+                            <textarea id="editor" class="form-control @error('description') is-invalid @enderror" name="summary"  placeholder="Category Summary"></textarea>
                         </div>
                         @error('summary')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -74,20 +65,16 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <hr>
-                    <div class="form-row">
-{{--                    <label for="">: </label><br>--}}
-                    <input type="checkbox" class="form-check-input" name="is_parent" value="1" checked>Is Parent
-                    </div>
-                    <hr>
+
                     <div class="form-row">
                         <select class="form-control @error('status') is-invalid @enderror" id="" name="status">
-                            <option selected>Action</option>
+                            <option selected>Status</option>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
 
                         </select>
-                        <hr>
 
+                    </div>
                     @error('status')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -101,7 +88,7 @@
                     {{--                        </div>--}}
                     <hr>
                     <div class="col-2">
-                        <input type="submit" class="form-control btn btn-primary" name="btn" id="btn" value="Add Banner">
+                        <input type="submit" class="form-control btn btn-primary" name="btn" id="btn" value="Add Category">
                     </div>
                 </form>
             </div>
