@@ -53,6 +53,9 @@
             {{($route == 'subcategory')?'menu-open': ''}}
             {{($route == 'add_subcategory')?'menu-open': ''}}
             {{($route == 'subcategory_edit')?'menu-open': ''}}
+            {{($route == 'child_category'?'menu-open':'')}}
+            {{($route == 'add_child_category'?'menu-open':'')}}
+            {{($route == 'child_category_edit'?'menu-open':'')}}
 
                 ">
 
@@ -64,6 +67,9 @@
                 {{($route == 'subcategory')?'active': ''}}
                 {{($route == 'add_subcategory')?'active': ''}}
                 {{($route == 'subcategory_edit')?'active': ''}}
+                {{($route == 'child_category'?'active':'')}}
+                {{($route == 'add_child_category'?'active':'')}}
+                {{($route == 'child_category_edit'?'active':'')}}
 
 
                     ">
@@ -99,7 +105,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link ">
+                        <a href="{{route('child_category')}}" class="nav-link
+                            {{($route == 'child_category'?'active':'')}}
+                            {{($route == 'add_child_category'?'active':'')}}
+                            {{($route == 'child_category_edit'?'active':'')}}
+                            ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Child Category</p>
                         </a>
@@ -116,6 +126,41 @@
                     {{($route =='banner.index')?'active':''}}
                     {{($route =='banner_edit')?'active':''}}
                     {{($route =='banner.create')?'active':''}}
+                    ">
+                    <i class="fas fa-shopping-bag"> </i>
+                    <p>
+                        Banner
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('banner.index')}}" class="nav-link
+                        {{($route =='banner.index')?'active':''}}
+                        {{($route =='banner_edit')?'active':''}}
+                            ">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Banner List</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('banner.create')}}" class="nav-link {{($route =='banner.create')?'active':''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Add Banner</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item has-treeview
+                {{($route =='banner.index')?'menu-open':''}}
+            {{($route =='banner_edit')?'menu-open':''}}
+            {{($route =='banner.create')?'menu-open':''}}
+
+                ">
+                <a href="#" class="nav-link
+                    {{($route =='banner.index')?'active':''}}
+                {{($route =='banner_edit')?'active':''}}
+                {{($route =='banner.create')?'active':''}}
                     ">
                     <i class="fas fa-shopping-bag"> </i>
                     <p>

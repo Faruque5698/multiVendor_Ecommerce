@@ -68,7 +68,7 @@ class BannerController extends Controller
 
         $banner->description = $request->description;
         $banner->photo=$imageUrl;
-        $banner->status = $request->status;
+        $banner->status = 'inactive';
         $banner->condition = $request->condition;
         $banner->save();
 

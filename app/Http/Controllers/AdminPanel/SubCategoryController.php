@@ -63,6 +63,8 @@ class SubCategoryController extends Controller
 
     public function edit($id){
         $subcat = SubCategory::find($id);
+
+//        return $subcat;
         $categories = Category::where('status','=','active')->get();
 
         return view('AdminPanel.sub_category.edit_subcategory',[
@@ -71,4 +73,16 @@ class SubCategoryController extends Controller
         ]);
 
     }
+
+    public function update (Request $request) {
+        $sub_cat = SubCategory::find($request->id);
+        $sub_cat->title = $request->title;
+        $sub_cat->category_id = $request->category_id;
+        $sub_cat->summary = $request->summary;
+        $sub_cat->status = $request->status;
+        $sub_cat->save();
+
+        return redirect('admins/subcategory')->with('message','Subcategory updated');
+    }
+
 }
