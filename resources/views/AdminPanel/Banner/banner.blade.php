@@ -46,7 +46,6 @@ Banner
                                     <tr>
                                         <th>Sl</th>
                                         <th>Banner Title</th>
-
                                         <th>Banner Description</th>
                                         <th>Banner Image</th>
                                         <th>Publication Status</th>
@@ -62,7 +61,7 @@ Banner
                                             <td>{{$banner->title}}</td>
                                             <td>{{$banner->description}}</td>
                                             <td><img src="{{asset($banner->photo)}}" alt="{{$banner->title}}" width="100px" height="100px"></td>
-                                            <td>{{$banner->status == 'active' ? 'Active':'Inactive'}}</td>
+                                            <td>{{$banner->status == 'active' ? 'Published':'Unpublished'}}</td>
                                             <td>
 
                                                 @if($banner->status == 'active')

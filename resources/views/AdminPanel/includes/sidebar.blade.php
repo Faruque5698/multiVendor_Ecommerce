@@ -152,36 +152,67 @@
                 </ul>
             </li>
             <li class="nav-item has-treeview
-                {{($route =='banner.index')?'menu-open':''}}
-            {{($route =='banner_edit')?'menu-open':''}}
-            {{($route =='banner.create')?'menu-open':''}}
+            {{($route =='brand')?'menu-open':''}}
+            {{($route =='brand_edit')?'menu-open':''}}
+            {{($route =='brand_add')?'menu-open':''}}
 
                 ">
                 <a href="#" class="nav-link
-                    {{($route =='banner.index')?'active':''}}
-                {{($route =='banner_edit')?'active':''}}
-                {{($route =='banner.create')?'active':''}}
+                    {{($route =='brand')?'active':''}}
+                {{($route =='brand_edit')?'active':''}}
+                {{($route =='brand_add')?'active':''}}
                     ">
                     <i class="fas fa-shopping-bag"> </i>
                     <p>
-                        Banner
+                        Brand
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{route('banner.index')}}" class="nav-link
-                        {{($route =='banner.index')?'active':''}}
+                        <a href="{{route('brand')}}" class="nav-link
+{{--                        {{($route =='brand_add')?'active':''}}--}}
+                        {{($route =='brand')?'active':''}}
                         {{($route =='banner_edit')?'active':''}}
                             ">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Banner List</p>
+                            <p>Brand List</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('banner.create')}}" class="nav-link {{($route =='banner.create')?'active':''}}">
+                        <a href="{{route('brand_add')}}" class="nav-link {{($route =='brand_add')?'active':''}}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Add Banner</p>
+                            <p>Add </p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item has-treeview
+{{--            {{($route =='brand')?'menu-open':''}}--}}
+{{--            {{($route =='brand_edit')?'menu-open':''}}--}}
+{{--            {{($route =='brand_add')?'menu-open':''}}--}}
+
+                ">
+                <a href="#" class="nav-link
+{{--                    {{($route =='brand')?'active':''}}--}}
+{{--                {{($route =='brand_edit')?'active':''}}--}}
+{{--                {{($route =='brand_add')?'active':''}}--}}
+                    ">
+                    <i class="fas fa-shopping-bag"> </i>
+                    <p>
+                        Users
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('userList')}}" class="nav-link
+{{--                        {{($route =='brand_add')?'active':''}}--}}
+{{--                        {{($route =='brand')?'active':''}}--}}
+{{--                        {{($route =='banner_edit')?'active':''}}--}}
+                            ">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>User List</p>
                         </a>
                     </li>
                 </ul>

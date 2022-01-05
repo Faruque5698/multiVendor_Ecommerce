@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\SubCategoryController;
 use App\Http\Controllers\AdminPanel\BrandController;
 use App\Http\Controllers\AdminPanel\ChildCategoryController;
+use App\Http\Controllers\AdminPanel\UserController;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +25,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix'=>'admins','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'admins','middleware'=>['auth','admin']],function(){
     Route::get('/',[BackEndController::class,'admin'])->name('admin');
 
     //banner routes
@@ -86,8 +88,20 @@ Route::group(['prefix'=>'admins','middleware'=>'auth'],function(){
     Route::get('Brand/edit/{id}',[BrandController::class,'edit'])->name('brand_edit');
     Route::post('Brand/update/',[BrandController::class,'update'])->name('brand_update');
 
+//    User Control Route
+
+    Route::get('/userList',[UserController::class,'index'])->name('userList');
+//    Route::get('/userList',[UserController::class,'add'])->name('userList');
+    Route::get('/userRoleManage',[UserController::class,'roleManage'])->name('roleManage');
+    Route::get('/userEdit/{id}',[UserController::class,'user_edit'])->name('user_edit');
+    Route::post('/userupdate',[UserController::class,'user_update'])->name('user_update');
+    Route::get('/userDetails/{id}',[UserController::class,'user_details'])->name('user_details');
+    Route::get('/userban/{id}',[UserController::class,'user_details'])->name('user_ban');
 
 
 
 
+});
+Route::group(['prefix'=>'GolaGhar','middleware'=>['auth','user']],function(){
+    Route::get('/',[FrontController::class,'index'])->name('customer');
 });
