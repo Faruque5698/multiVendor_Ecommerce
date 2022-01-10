@@ -79,9 +79,11 @@ class ChildCategoryController extends Controller
     }
     public function destroy($id){
         $child = ChildCategory::find($id);
-//        $child->status='active';
-        $child->delete();
 
-        return back()->with('message','Child category Deleted');
+        return $child;
+//        $child->status='active';
+//        $child->delete();
+//
+//        return back()->with('message','Child category Deleted');
     }
 }

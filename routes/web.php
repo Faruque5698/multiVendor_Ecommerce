@@ -8,6 +8,8 @@ use App\Http\Controllers\AdminPanel\SubCategoryController;
 use App\Http\Controllers\AdminPanel\BrandController;
 use App\Http\Controllers\AdminPanel\ChildCategoryController;
 use App\Http\Controllers\AdminPanel\UserController;
+use App\Http\Controllers\AdminPanel\SizeController;
+use App\Http\Controllers\AdminPanel\ColorController;
 use App\Http\Controllers\FrontController;
 
 /*
@@ -97,7 +99,27 @@ Route::group(['prefix'=>'admins','middleware'=>['auth','admin']],function(){
     Route::post('/userupdate',[UserController::class,'user_update'])->name('user_update');
     Route::get('/userDetails/{id}',[UserController::class,'user_details'])->name('user_details');
     Route::get('/userban/{id}',[UserController::class,'user_details'])->name('user_ban');
+//
+//   Sizes
 
+    Route::get('sizes',[SizeController::class,'index'])->name('sizes');
+    Route::get('add_sizes',[SizeController::class,'add'])->name('add_size');
+    Route::get('edit_sizes/{id}',[SizeController::class,'edit'])->name('edit_size');
+    Route::post('size_store',[SizeController::class,'store'])->name('store_sizes');
+    Route::post('size_update',[SizeController::class,'update'])->name('update_sizes');
+    Route::get('size_published/{id}',[SizeController::class,'published'])->name('size_published');
+    Route::get('size_unpublished/{id}',[SizeController::class,'unpublished'])->name('size_unpublished');
+    Route::get('size_delete/{id}',[SizeController::class,'destroy'])->name('size_destroy');
+
+//    Color Route
+    Route::get('colors',[ColorController::class,'index'])->name('colors');
+    Route::get('add_colors',[ColorController::class,'add'])->name('add_color');
+    Route::post('store_Color',[ColorController::class,'store'])->name('store_color');
+    Route::get('unpublished_Color/{id}',[ColorController::class,'unpublished'])->name('color_unpublished');
+    Route::get('published_Color/{id}',[ColorController::class,'published'])->name('color_published');
+    Route::get('edit_Color/{id}',[ColorController::class,'edit'])->name('color_edit');
+    Route::post('update_Color',[ColorController::class,'update'])->name('update_color');
+    Route::get('delete_Color/{id}',[ColorController::class,'destroy'])->name('color_destroy');
 
 
 

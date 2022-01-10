@@ -80,10 +80,10 @@
 
                                             <a href="{{route('child_category_edit',['id'=>$child->id])}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
 
-                                            <a href="" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-danger" ><i class="fa fa-trash"></i></a>
+                                            <button href="{{route('child_category_destroy',['id'=>$child->id])}}" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-danger" ><i class="fa fa-trash"></i></button>
                                         </td>
-                                    </tr>
 
+                                    </tr>
                                     <div class="modal fade" id="modal-danger">
                                         <div class="modal-dialog">
                                             <div class="modal-content bg-danger">
@@ -106,7 +106,10 @@
                                         <!-- /.modal-dialog -->
                                     </div>
 
+
+
                                 @endforeach
+
 
                                 </tbody>
 
@@ -127,6 +130,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     </section>

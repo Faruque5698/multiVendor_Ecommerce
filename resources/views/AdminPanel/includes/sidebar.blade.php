@@ -188,14 +188,14 @@
                 </ul>
             </li>
             <li class="nav-item has-treeview
-{{--            {{($route =='brand')?'menu-open':''}}--}}
-{{--            {{($route =='brand_edit')?'menu-open':''}}--}}
+            {{($route =='userList')?'menu-open':''}}
+            {{($route =='user_edit')?'menu-open':''}}
 {{--            {{($route =='brand_add')?'menu-open':''}}--}}
 
                 ">
                 <a href="#" class="nav-link
-{{--                    {{($route =='brand')?'active':''}}--}}
-{{--                {{($route =='brand_edit')?'active':''}}--}}
+                    {{($route =='userList')?'active':''}}
+                {{($route =='user_edit')?'active':''}}
 {{--                {{($route =='brand_add')?'active':''}}--}}
                     ">
                     <i class="fas fa-shopping-bag"> </i>
@@ -208,8 +208,8 @@
                     <li class="nav-item">
                         <a href="{{route('userList')}}" class="nav-link
 {{--                        {{($route =='brand_add')?'active':''}}--}}
-{{--                        {{($route =='brand')?'active':''}}--}}
-{{--                        {{($route =='banner_edit')?'active':''}}--}}
+                        {{($route =='userList')?'active':''}}
+                        {{($route =='user_edit')?'active':''}}
                             ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>User List</p>
@@ -218,20 +218,21 @@
                 </ul>
             </li>
             <li class="nav-item has-treeview
-{{--                {{'category' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'category/add' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'category/edit/{id}' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'subcategory' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'subcategory/add' == request()->path() ? ' menu-open' : ''}}--}}
-            {{--            {{'subcategory/edit/{id}' == request()->path() ? ' menu-open' : ''}}--}}
+            {{($route == 'colors')?'menu-open': ''}}
+            {{($route == 'sizes')?'menu-open': ''}}
+            {{($route == 'add_color')?'menu-open': ''}}
+            {{($route == 'color_edit')?'menu-open': ''}}
+            {{($route == 'add_size')?'menu-open': ''}}
+            {{($route == 'edit_size')?'menu-open': ''}}
+
                 ">
                 <a href="#" class="nav-link
-{{--{{'category' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'category/add' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'category/edit/{id}' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'subcategory' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'subcategory/add' == request()->path() ? ' active' : ''}}--}}
-                {{--                {{'subcategory/edit/{id}' == request()->path() ? ' active' : ''}}" --}}
+                {{($route == 'colors')?'active': ''}}
+                {{($route == 'sizes')?'active': ''}}
+                {{($route == 'add_color')?'active': ''}}
+                {{($route == 'color_edit')?'active': ''}}
+                {{($route == 'add_size')?'active': ''}}
+                {{($route == 'edit_size')?'active': ''}}
                     ">
                     <i class="fas fa-shopping-bag"> </i>
                     <p>
@@ -250,6 +251,28 @@
                         <a href="" class="nav-link ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Add Product</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('sizes')}}" class="nav-link
+
+                        {{($route == 'sizes')?'active': ''}}
+
+                        {{($route == 'add_size')?'active': ''}}
+                        {{($route == 'edit_size')?'active': ''}}
+                        ">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Sizes</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('colors')}}" class="nav-link
+                         {{($route == 'colors')?'active': ''}}
+                        {{($route == 'add_color')?'active': ''}}
+                        {{($route == 'color_edit')?'active': ''}}
+                                    ">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Color</p>
                         </a>
                     </li>
                 </ul>

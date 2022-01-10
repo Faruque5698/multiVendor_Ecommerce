@@ -38,6 +38,8 @@
   </div>
   <!-- /.content-wrapper -->
 
+    @include('AdminPanel.includes.footer')
+
 
 
   <!-- Control Sidebar -->
@@ -54,6 +56,15 @@
 <script src="{{asset('admin')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin')}}/dist/js/adminlte.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{{--Jquery CDN--}}
+
+{{--Jquery Validation Plugin--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" ></script>
+
+{{--Sweat Alert Cdn--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" ></script>--}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin')}}/dist/js/demo.js"></script>
 <script src="{{asset('admin')}}/plugins/datatables/jquery.dataTables.min.js"></script>

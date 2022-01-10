@@ -73,16 +73,16 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <hr>
-{{--                    <div class="form-row">--}}
+                   {{-- <div class="form-row">--}} 
 
-{{--                        <select class="form-control @error('status') is-invalid @enderror" id="" name="status">--}}
+                       {{-- <select class="form-control @error('status') is-invalid @enderror" id="" name="status">
 {{--                            <option selected>Publication Status</option>--}}
 {{--                            <option value="active">Active</option>--}}
 {{--                            <option value="inactive">Inactive</option>--}}
 
 {{--                        </select>--}}
 {{--                        --}}{{--                                <img src="#" alt="" width="100%">--}}
-{{--                    </div>--}}
+{{--                    </div> --}}
                     @error('status')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
