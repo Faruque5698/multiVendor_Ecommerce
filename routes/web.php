@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminPanel\ChildCategoryController;
 use App\Http\Controllers\AdminPanel\UserController;
 use App\Http\Controllers\AdminPanel\SizeController;
 use App\Http\Controllers\AdminPanel\ColorController;
+use App\Http\Controllers\AdminPanel\ProductController;
 use App\Http\Controllers\FrontController;
 
 /*
@@ -121,9 +122,17 @@ Route::group(['prefix'=>'admins','middleware'=>['auth','admin']],function(){
     Route::post('update_Color',[ColorController::class,'update'])->name('update_color');
     Route::get('delete_Color/{id}',[ColorController::class,'destroy'])->name('color_destroy');
 
+//    Product Route
+Route::get('product',[ProductController::class,'index'])->name('products');
+Route::get('add_product',[ProductController::class,'add'])->name('add_products');
+
 
 
 });
+Route::get('/findsubcategory',[ProductController::class,'getSubCat']);
+Route::get('/findsubsubcategory',[ProductController::class,'getsubSubCat']);
+
+
 Route::group(['prefix'=>'GolaGhar','middleware'=>['auth','user']],function(){
     Route::get('/',[FrontController::class,'index'])->name('customer');
 });

@@ -242,7 +242,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="" class="nav-link ">
+                        <a href="{{route('products')}}" class="nav-link ">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Product List</p>
                         </a>
@@ -267,7 +267,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('colors')}}" class="nav-link
-                         {{($route == 'colors')?'active': ''}}
+                        {{($route == 'colors')?'active': ''}}
                         {{($route == 'add_color')?'active': ''}}
                         {{($route == 'color_edit')?'active': ''}}
                                     ">
