@@ -31,6 +31,8 @@ class CreateProductsTable extends Migration
             $table->string('product_discount_type',10)->nullable();
             $table->float('product_discount_price',20,2)->nullable();
             $table->text('product_image');
+            $table->enum('new',['active','inactive']);
+            $table->enum('best_sell',['active','inactive']);
             $table->enum('status',['active','inactive']);
             $table->timestamps();
 

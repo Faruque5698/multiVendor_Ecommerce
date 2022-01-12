@@ -125,6 +125,8 @@ Route::group(['prefix'=>'admins','middleware'=>['auth','admin']],function(){
 //    Product Route
 Route::get('product',[ProductController::class,'index'])->name('products');
 Route::get('add_product',[ProductController::class,'add'])->name('add_products');
+Route::post('store_product',[ProductController::class,'store'])->name('store_products');
+Route::get('product/details/{id}',[ProductController::class,'product_details'])->name('product_details');
 
 
 

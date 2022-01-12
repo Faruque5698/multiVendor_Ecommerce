@@ -38,7 +38,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form action="" enctype="multipart/form-data" method="post">
+                <form action="{{route('store_products')}}" enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="form-row">
                         <select class="form-control @error('brand_id') is-invalid @enderror" id="brand_id" name="brand_id">
@@ -142,11 +142,11 @@
 {{--                    <hr>--}}
 
                     <div class="form-row">
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('large') is-invalid @enderror" name="large" value="Size : L"  disabled>
+                        <div class="col-1">
+                            <input type="text" class="form-control @error('large') is-invalid @enderror" name="large" value="Size : L"  readonly>
 
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <input type="text" class="form-control @error('large_product_price') is-invalid @enderror" name="large_product_price"  placeholder="Large Product Price">
                             @error('large_product_price')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -159,15 +159,18 @@
                         <div class="col-3">
                             <input type="text" class="form-control @error('large_product_discount') is-invalid @enderror" name="large_product_discount_price"  placeholder="Large Product After Discount Price">
                         </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control @error('large_product_quantity') is-invalid @enderror" name="large_product_quantity"  placeholder="Large Product After quantity">
+                        </div>
                     </div>
                     <hr>
 
                     <div class="form-row">
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('large') is-invalid @enderror" name="medium" value="Size : M"  disabled>
+                        <div class="col-1">
+                            <input type="text" class="form-control @error('large') is-invalid @enderror" name="medium" value="Size : M"  readonly>
 
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <input type="text" class="form-control @error('medium_product_price') is-invalid @enderror" name="medium_product_price"  placeholder="Medium Product Price">
                             @error('medium_product_price')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -180,14 +183,17 @@
                         <div class="col-3">
                             <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="medium_product_discount_price"  placeholder="Medium Product After Discount Price">
                         </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control @error('medium_product_quantity') is-invalid @enderror" name="medium_product_quantity"  placeholder="Large Product After quantity">
+                        </div>
                     </div>
                     <hr>
                     <div class="form-row">
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('large') is-invalid @enderror" name="small" value="Size : S"  disabled>
+                        <div class="col-1">
+                            <input type="text" class="form-control @error('small') is-invalid @enderror" name="small" value="Size : S"  readonly>
 
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <input type="text" class="form-control @error('small_product_price') is-invalid @enderror" name="small_product_price"  placeholder="Small Product Price">
                             @error('large_product_price')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -199,6 +205,9 @@
                         </div>
                         <div class="col-3">
                             <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="small_product_discount_price"  placeholder="Small Product After Discount Price">
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control @error('small_product_quantity') is-invalid @enderror" name="small_product_quantity"  placeholder="small Product After quantity">
                         </div>
                     </div>
 {{--                    <hr>--}}
@@ -237,12 +246,54 @@
                             <label for="">Gallery Images:</label>
                         </div>
                         <div class="col-8">
-                            <input type="file" class="form-control @error('gallery_image') is-invalid @enderror" name="gallery_image[]" multiple>
+                            <input type="file" class="form-control @error('gallery_image[]') is-invalid @enderror" name="gallery_image[]" multiple>
                         </div>
-                        @error('gallery_image')
+                        @error('gallery_image[]')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <hr>
+                    <div class="form-row">
+                        <select class="form-control @error('best_sell') is-invalid @enderror" id="" name="best_sell">
+                            <option selected>Best sell</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+
+                        </select>
+
+                    </div>
+                    @error('best_sell')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+
+
+
+                    {{--                        <hr>--}}
+                    {{--                        <div class=" ml-5">--}}
+                    {{--                            <img style="width: 50%;border: 1px solid; border-radius: 10px;" id="viewer" src="{{asset('admin')}}/image/image.jpg" alt="banner image">--}}
+                    {{--                        </div>--}}
+                    <hr>
+                    <div class="form-row">
+                        <select class="form-control @error('new') is-invalid @enderror" id="" name="new">
+                            <option selected>New Arrivals</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+
+                        </select>
+
+                    </div>
+                    @error('new')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+
+
+
+                    {{--                        <hr>--}}
+                    {{--                        <div class=" ml-5">--}}
+                    {{--                            <img style="width: 50%;border: 1px solid; border-radius: 10px;" id="viewer" src="{{asset('admin')}}/image/image.jpg" alt="banner image">--}}
+                    {{--                        </div>--}}
                     <hr>
 
                     <div class="form-row">
@@ -267,7 +318,7 @@
                     {{--                        </div>--}}
                     <hr>
                     <div class="col-2">
-                        <input type="submit" class="form-control btn btn-primary" name="btn" id="btn" value="Add Child category">
+                        <input type="submit" class="form-control btn btn-primary" name="btn" id="btn" value="Add New Product">
                     </div>
                 </form>
             </div>

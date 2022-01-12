@@ -52,23 +52,27 @@
                                     <th>Product Name</th>
                                     <th>Category Name</th>
                                     <th>Brand Name</th>
+                                    <th>product Image</th>
                                     <th>Publication Status</th>
                                     <th>Action</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-{{--                                @php($i=1)--}}
-{{--                                @foreach($colors as $color)--}}
-{{--                                    <tr>--}}
-{{--                                        <td>{{$i++}}</td>--}}
-{{--                                        <td>{{$color->color_name}}</td>--}}
-{{--                                        <td>{{$color->color_code}}</td>--}}
-{{--                                        <td><div style="background-color: {{$color->color_code}}; width: 100px ; height: 100px"></div></td>--}}
+                                @php($i=1)
+                                @foreach($products as $product)
+                                    <tr>
+                                        <td>{{$i++}}</td>
+                                        <td>{{$product->product_name}}</td>
+                                        <td>{{$product->category->title}}</td>
+                                        <td>{{$product->brand->name}}</td>
+                                        <td><img src="{{asset($product->product_image)}}" alt="{{$product->product_name}}"width="100px" height="100px"></td>
 
 
-{{--                                        <td>{{$color->status == 'active' ? 'Published':'Unpublished'}}</td>--}}
-{{--                                        <td>--}}
+                                        <td>{{$product->status == 'active' ? 'Published':'Unpublished'}}</td>
+                                        <td>
+
+                                            <a href="{{route('product_details',['id'=>$product->id])}}" class="btn btn-sm btn-outline-info"><i class="icon-zoom-in"></i></a>
 
 {{--                                            @if($color->status == 'active')--}}
 {{--                                                <a href="{{route('color_unpublished',['id'=>$color->id])}}" class="btn btn-sm btn-info"--}}
@@ -81,14 +85,14 @@
 {{--                                            <a href="{{route('color_edit',['id'=>$color->id])}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>--}}
 
 {{--                                            <a href="{{route('color_destroy',['id'=>$color->id])}}" class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i></a>--}}
-{{--                                        </td>--}}
+                                        </td>
 
-{{--                                    </tr>--}}
+                                    </tr>
 
-{{--                                @endforeach--}}
+                                @endforeach
 
 
-{{--                                </tbody>--}}
+                                </tbody>
 
                                 <tfoot>
                                 <tr>
@@ -96,6 +100,7 @@
                                     <th>Product Name</th>
                                     <th>Category Name</th>
                                     <th>Brand Name</th>
+                                    <th>Product Image</th>
                                     <th>Publication Status</th>
                                     <th>Action</th>
 
