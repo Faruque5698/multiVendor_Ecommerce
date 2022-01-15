@@ -56,4 +56,9 @@ class UserController extends Controller
         return back()->with('message','Profile Updated');
 
     }
+
+
+    public function profileApi($id){
+
+    }
 }

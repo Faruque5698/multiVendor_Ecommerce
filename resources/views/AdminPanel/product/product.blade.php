@@ -72,7 +72,7 @@
                                         <td>{{$product->status == 'active' ? 'Published':'Unpublished'}}</td>
                                         <td>
 
-                                            <a href="{{route('product_details',['id'=>$product->id])}}" class="btn btn-sm btn-outline-info"><i class="icon-zoom-in"></i></a>
+                                            <a href="{{route('product_details',['id'=>$product->id])}}" class="btn btn-sm btn-dark"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
 
 {{--                                            @if($color->status == 'active')--}}
 {{--                                                <a href="{{route('color_unpublished',['id'=>$color->id])}}" class="btn btn-sm btn-info"--}}

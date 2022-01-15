@@ -23,10 +23,10 @@ class CreateProductsTable extends Migration
             $table->text('product_description');
             $table->integer('product_quantity');
             $table->integer('stock')->default(0);
-            $table->unsignedInteger('color_id');
+            $table->unsignedInteger('color_id')->nullable();
 //            $table->string('color_code');
 //            $table->integer('product_size');
-            $table->float('product_price',20,2);
+            $table->float('product_price',20,2)->nullable();
             $table->float('product_discount',20,2)->nullable();
             $table->string('product_discount_type',10)->nullable();
             $table->float('product_discount_price',20,2)->nullable();

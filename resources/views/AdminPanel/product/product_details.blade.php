@@ -46,41 +46,83 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
-                                <thead>
                                 <tr>
-                                    <th>Sl</th>
-                                    <th>Product Name</th>
-                                    <th>Category Name</th>
-                                    <th>Brand Name</th>
-                                    <th>product Image</th>
-                                    <th>Publication Status</th>
-                                    <th>Action</th>
+                                    <th class="col-3">Product Name</th>
+                                    <td colspan="12">{{$product->product_name}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-3">Product Brand</th>
+                                    <td colspan="12">{{$product->brand->name}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-3">Product Category</th>
+                                    <td colspan="12">{{$product->category->title}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-3">Product Subcategory</th>
+                                    <td colspan="12">{{$product->subcategory->title}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-3">Product Child Category</th>
+                                    <td colspan="12">{{$product->childcategory->title}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-3">Product Description</th>
+                                    <td colspan="12">{{$product->product_description}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-3">Product Quantity</th>
+                                    <td colspan="12">{{$product->product_quantity}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-1">Size</th>
+                                    <th class="col-2">Product Price</th>
+                                    <th class="col-3">Product Discount</th>
+                                    <th class="col-1">Product Discount Type</th>
+                                    <th class="col-1">Product Discount Price</th>
+                                    <th class="col-1">Quantity</th>
+                                </tr>
+{{--                                {{dd($product)}}--}}
+                                <tr>
+                                    <td class="col-1">{{$product->sizeBasedProduct->large}}</td>
+                                    <td class="col-2">{{$product->sizeBasedProduct->large_product_price}} </td>
+                                    <td class="col-2">{{$product->sizeBasedProduct->large_product_discount}} </td>
+                                    <td class="col-1">{{$product->sizeBasedProduct->large_product_discount_type}} </td>
+                                    <td class="col-3">{{$product->sizeBasedProduct->large_product_discount_price}} </td>
+                                    <td class="col-3"> {{$product->sizeBasedProduct->large_product_quantity}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-1">{{$product->sizeBasedProduct->medium}}</td>
+                                    <td class="col-2">{{$product->sizeBasedProduct->medium_product_price}} </td>
+                                    <td class="col-2">{{$product->sizeBasedProduct->medium_product_discount}} </td>
+                                    <td class="col-1">{{$product->sizeBasedProduct->medium_product_discount_type}} </td>
+                                    <td class="col-3">{{$product->sizeBasedProduct->medium_product_discount_price}} </td>
+                                    <td class="col-3"> {{$product->sizeBasedProduct->medium_product_quantity}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-1">{{$product->sizeBasedProduct->small}}</td>
+                                    <td class="col-2">{{$product->sizeBasedProduct->small_product_price}} </td>
+                                    <td class="col-2">{{$product->sizeBasedProduct->small_product_discount}} </td>
+                                    <td class="col-1">{{$product->sizeBasedProduct->small_product_discount_type}} </td>
+                                    <td class="col-3">{{$product->sizeBasedProduct->small_product_discount_price}} </td>
+                                    <td class="col-3"> {{$product->sizeBasedProduct->small_product_quantity}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th class="col-3">Product Image</th>
+                                    <td colspan="12"><img src="{{asset($product->product_image)}}" alt="{{$product->product_name}}" width="200px" height="200px"></td>
+                                </tr>
+                                <tr>
+                                    <th class="col-3">Product gallery</th>
+                                    <td colspan="12">
+                                    @foreach($product->gallery as $gallery)
+                                            <img src="{{asset($gallery->gallary_image)}}" alt="{{$product->product_name}}" width="100px" height="100px">
+                                        @endforeach
+                                    </td>
 
                                 </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-
-                                    </tr>
 
 
-
-
-                                </tbody>
-
-                                <tfoot>
-                                <tr>
-                                    <th>Sl</th>
-                                    <th>Product Name</th>
-                                    <th>Category Name</th>
-                                    <th>Brand Name</th>
-                                    <th>Product Image</th>
-                                    <th>Publication Status</th>
-                                    <th>Action</th>
-
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

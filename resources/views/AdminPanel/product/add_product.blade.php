@@ -119,7 +119,7 @@
                             <option>Select Color</option>
                             @foreach($colors as $color)
 
-                                <option value="{{$color->id}}">{{$color->color_name}}></option>
+                                <option value="{{$color->id}}">{{$color->color_name}}</option>
 
                             @endforeach
 
@@ -133,7 +133,7 @@
                     <hr>
 {{--                    <div class="form-row">--}}
 {{--                        <div class="col-12">--}}
-{{--                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="product_name"  placeholder="Product Name">--}}
+{{--                            <input type="text" class="form-control @error('product_name') is-invalid @enderror" name="product_name"  placeholder="Product Name">--}}
 {{--                        </div>--}}
 {{--                        @error('product_name')--}}
 {{--                        <div class="alert alert-danger">{{ $message }}</div>--}}
@@ -147,17 +147,25 @@
 
                         </div>
                         <div class="col-2">
-                            <input type="text" class="form-control @error('large_product_price') is-invalid @enderror" name="large_product_price"  placeholder="Large Product Price">
+                            <input type="text" class="form-control @error('large_product_price') is-invalid @enderror" name="large_product_price" id="large_product_price"  placeholder="Large Product Price">
                             @error('large_product_price')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('large_product_discount') is-invalid @enderror" name="large_product_discount"  placeholder="Large Product Discount">
+                        <div class="col-2">
+                            <input type="text" class="form-control @error('large_product_discount') is-invalid @enderror" name="large_product_discount" id="large_product_discount"  placeholder="Large Product Discount">
 
                         </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('large_product_discount') is-invalid @enderror" name="large_product_discount_price"  placeholder="Large Product After Discount Price">
+                        <div class="col-1">
+                            <input  type="radio"  id="large_disc_pers" name="large_product_discount_type"  value="%"> %
+                            <input type="radio" name="large_product_discount_type"  value="money" id="large_disc_taka"> Money
+                        </div>
+                        <div class="col-1">
+                            <input type="button" id="cal" class="btn btn-info" value="Discount" onclick="large_discount_calculation()">
+                        </div>
+
+                        <div class="col-2">
+                            <input type="text" class="form-control @error('large_product_discount') is-invalid @enderror" name="large_product_discount_price" id="large_product_discount_price" placeholder="Large Product After Discount Price">
                         </div>
                         <div class="col-3">
                             <input type="text" class="form-control @error('large_product_quantity') is-invalid @enderror" name="large_product_quantity"  placeholder="Large Product After quantity">
@@ -171,17 +179,24 @@
 
                         </div>
                         <div class="col-2">
-                            <input type="text" class="form-control @error('medium_product_price') is-invalid @enderror" name="medium_product_price"  placeholder="Medium Product Price">
+                            <input type="text" class="form-control @error('medium_product_price') is-invalid @enderror" name="medium_product_price" id="medium_product_price"  placeholder="Medium Product Price">
                             @error('medium_product_price')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="medium_product_discount"  placeholder="Medium Product Discount">
+                        <div class="col-2">
+                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="medium_product_discount"  id="medium_product_discount" placeholder="Medium Product Discount">
 
                         </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="medium_product_discount_price"  placeholder="Medium Product After Discount Price">
+                        <div class="col-1">
+                            <input  type="radio"  id="medium_disc_pers" name="medium_product_discount_type"  value="%"> %
+                            <input type="radio" name="medium_product_discount_type"  value="money" id="medium_disc_taka"> Money
+                        </div>
+                        <div class="col-1">
+                            <input type="button" id="cal" class="btn btn-info" value="Discount" onclick="medium_discount_calculation()">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="medium_product_discount_price"  id="medium_product_discount_price" placeholder="Medium Product After Discount Price">
                         </div>
                         <div class="col-3">
                             <input type="text" class="form-control @error('medium_product_quantity') is-invalid @enderror" name="medium_product_quantity"  placeholder="Large Product After quantity">
@@ -194,17 +209,24 @@
 
                         </div>
                         <div class="col-2">
-                            <input type="text" class="form-control @error('small_product_price') is-invalid @enderror" name="small_product_price"  placeholder="Small Product Price">
+                            <input type="text" class="form-control @error('small_product_price') is-invalid @enderror" id="small_product_price" name="small_product_price"  placeholder="Small Product Price">
                             @error('large_product_price')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="small_product_discount"  placeholder="Small Product Discount">
+                        <div class="col-2">
+                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" id="small_product_discount" name="small_product_discount"  placeholder="Small Product Discount">
 
                         </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="small_product_discount_price"  placeholder="Small Product After Discount Price">
+                        <div class="col-1">
+                            <input  type="radio"  id="small_disc_pers" name="small_product_discount_type"  value="%"> %
+                            <input type="radio" name="small_product_discount_type"  value="money" id="small_disc_taka"> Money
+                        </div>
+                        <div class="col-1">
+                            <input type="button" id="cal" class="btn btn-info" value="Discount" onclick="small_discount_calculation()">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="form-control @error('product_discount') is-invalid @enderror" name="small_product_discount_price" id="small_product_discount_price"  placeholder="Small Product After Discount Price">
                         </div>
                         <div class="col-3">
                             <input type="text" class="form-control @error('small_product_quantity') is-invalid @enderror" name="small_product_quantity"  placeholder="small Product After quantity">
@@ -395,6 +417,107 @@
                 });
             });
         });
+    </script>
+
+    <script type="text/javascript">
+
+        function large_discount_calculation(){
+
+
+            // $("#large_product_price, #large_product_discount')
+
+
+            if (document.getElementById('large_disc_taka').checked) {
+
+                    var n1 = parseFloat(document.getElementById('large_product_price').value);
+                    var n2 = parseFloat(document.getElementById('large_product_discount').value);
+                    var n = n1 - n2;
+                    // alert(n);
+
+                    $("#large_product_discount_price").val(n);
+
+            }
+            else if (document.getElementById('large_disc_pers').checked) {
+
+
+                    var n1 = parseFloat(document.getElementById('large_product_price').value);
+                    var n2 = parseFloat(document.getElementById('large_product_discount').value);
+                    var n = (n2 / 100) * n1;
+                    // alert(n)
+                    var n3 = n1 - n;
+                // $("#large_product_discount_price").val('');
+
+                $("#large_product_discount_price").val(n3);
+
+
+            }
+        }
+
+        function medium_discount_calculation(){
+
+
+            // $("#large_product_price, #large_product_discount')
+
+
+            if (document.getElementById('medium_disc_taka').checked) {
+
+                var n1 = parseFloat(document.getElementById('medium_product_price').value);
+                var n2 = parseFloat(document.getElementById('medium_product_discount').value);
+                var n = n1 - n2;
+                // alert(n);
+
+                $("#medium_product_discount_price").val(n);
+
+            }
+            else if (document.getElementById('medium_disc_pers').checked) {
+
+
+                var n1 = parseFloat(document.getElementById('medium_product_price').value);
+                var n2 = parseFloat(document.getElementById('medium_product_discount').value);
+                var n = (n2 / 100) * n1;
+                var n3 = n1 - n;
+                $("#medium_product_discount_price").val(n3);
+
+
+            }
+        }
+
+        function small_discount_calculation(){
+
+
+            // $("#large_product_price, #large_product_discount')
+
+
+            if (document.getElementById('small_disc_taka').checked) {
+
+                var n1 = parseFloat(document.getElementById('small_product_price').value);
+                var n2 = parseFloat(document.getElementById('small_product_discount').value);
+                var n = n1 - n2;
+                // alert(n);
+
+                $("#small_product_discount_price").val(n);
+
+            }
+            if (document.getElementById('small_disc_pers').checked) {
+
+
+                var n1 = parseFloat(document.getElementById('small_product_price').value);
+                var n2 = parseFloat(document.getElementById('small_product_discount').value);
+                var n = (n2 / 100) * n1;
+                var n3 = n1 - n;
+                $("#small_product_discount_price").val(n3);
+
+
+            }
+        }
+
+
+
+
+
+
+
+
     </script>
 
 @endsection

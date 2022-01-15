@@ -48,4 +48,13 @@ class LoginController extends Controller
     {
         return ['email'=>$request->email,'password'=>$request->password,'status'=>'active'];
     }
+
+
+    public function loginApi(Request $request){
+
+    }
+
+    public function logoutApi(){
+
+    }
 }

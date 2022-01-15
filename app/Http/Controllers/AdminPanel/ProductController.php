@@ -42,13 +42,13 @@ class ProductController extends Controller
     }
 
     public function product_details($id){
-        $product = Product::with('category','subcategory','childcategory','brand','gallery','sizeBasedProduct')->where('id','=',$id)->get();
+        $product = Product::with('category','subcategory','childcategory','brand','gallery','sizeBasedProduct')->find($id);
 
-        return $product;
+//        return $product;
 
-//        return view('AdminPanel.product.product',[
-//            'product'=>$product
-//        ]);
+        return view('AdminPanel.product.product_details',[
+            'product'=>$product
+        ]);
     }
 
     public function getSubCat(Request $request){
@@ -75,7 +75,7 @@ class ProductController extends Controller
             'best_sell'=>'required|in:active,inactive',
             'new'=>'required|in:active,inactive',
             'status'=>'required|in:active,inactive',
-            'gallery_image[]'=>'required|image'
+//            'gallery_image[]'=>'required|image'
 
         ]);
 
@@ -121,10 +121,13 @@ class ProductController extends Controller
         $sizeBasedProduct->small_product_price = $request->small_product_price;
         $sizeBasedProduct->medium_product_price = $request->medium_product_price;
         $sizeBasedProduct->large_product_discount = $request->large_product_discount;
+        $sizeBasedProduct->large_product_discount_type = $request->large_product_discount_type;
         $sizeBasedProduct->large_product_discount_price = $request->large_product_discount_price;
         $sizeBasedProduct->small_product_discount = $request->small_product_discount;
+        $sizeBasedProduct->small_product_discount_type = $request->small_product_discount_type;
         $sizeBasedProduct->small_product_discount_price = $request->small_product_discount_price;
         $sizeBasedProduct->medium_product_discount = $request->medium_product_discount;
+        $sizeBasedProduct->medium_product_discount_type = $request->medium_product_discount_type;
         $sizeBasedProduct->medium_product_discount_price = $request->medium_product_discount_price;
         $sizeBasedProduct->large_product_quantity = $request->large_product_quantity;
         $sizeBasedProduct->small_product_quantity = $request->small_product_quantity;

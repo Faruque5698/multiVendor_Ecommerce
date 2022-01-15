@@ -25,7 +25,7 @@ class Product extends Model
         return $this->hasMany(ProductGallery::class);
     }
     public function sizeBasedProduct(){
-        return $this->hasMany(SizeBasedProduct::class);
+        return $this->hasOne(SizeBasedProduct::class);
     }
 
 }

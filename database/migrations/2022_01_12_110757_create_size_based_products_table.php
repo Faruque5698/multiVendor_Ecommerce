@@ -23,6 +23,12 @@ class CreateSizeBasedProductsTable extends Migration
             $table->float('small_product_price',10,2)->nullable();
             $table->float('medium_product_price',10,2)->nullable();
             $table->float('large_product_discount',10,2)->nullable();
+
+            $table->string('large_product_discount_type',10)->nullable();
+            $table->string('medium_product_discount_type',10)->nullable();
+            $table->string('small_product_discount_type',10)->nullable();
+
+
             $table->float('large_product_discount_price',10,2)->nullable();
             $table->float('small_product_discount',10,2)->nullable();
             $table->float('small_product_discount_price',10,2)->nullable();
